@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Methodology and privacy details for BeforeUSend." />
+  <title>BeforeUSend | Methodology and privacy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=targeted-royal-1" />
+</head>
+<body data-page="methods">
+  <header class="topbar">
+    <a class="brand" href="index.html">BeforeUSend</a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="index.html" data-nav="analyze">Analyze</a><a href="activities.html" data-nav="activities">Activities</a><a href="how-it-works.html" data-nav="how">How it works</a><a href="methodology.html" data-nav="methods">Methodology & privacy</a></nav>
+  </header>
+
+  <main class="shell">
+    <div class="subpage-heading">
+      <span>METHODS AND PRIVACY</span>
+      <h1>Methodology and privacy</h1>
+      <p>A concise summary of what the system does, what it does not do, and how user drafts are handled.</p>
+    </div>
+
+    <section class="diagram-grid-two">
+      <article class="panel diagram-card">
+        <p class="section-eyebrow">Methodology</p>
+        <h3>How estimates are produced</h3>
+        <div class="signal-stack">
+          <div><strong>Input fields</strong><span>Message, communication goal, tone, recipient, and optional context</span></div>
+          <div><strong>Language review</strong><span>Pattern matching for escalation cues, requests, apologies, boundaries, and cooperative wording</span></div>
+          <div><strong>Scoring</strong><span>Fast estimates for escalation potential, goal alignment, and interpretation clarity</span></div>
+          <div><strong>Feedback</strong><span>Highlights, explanations, and an instant rewrite suggestion</span></div>
+        </div>
+      </article>
+      <article class="panel diagram-card">
+        <p class="section-eyebrow">Limitations</p>
+        <h3>What the system cannot know</h3>
+        <div class="signal-stack">
+          <div><strong>True intent</strong><span>The system cannot know what the sender truly meant</span></div>
+          <div><strong>Relationship history</strong><span>Scores can miss context that is not typed into the tool</span></div>
+          <div><strong>Clinical meaning</strong><span>The tool does not diagnose emotions, risk, or mental state</span></div>
+          <div><strong>Ground truth</strong><span>Scores are estimates, not measured probabilities</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="diagram-grid-two">
+      <article class="panel privacy-card">
+        <p class="section-eyebrow">Privacy</p>
+        <h3>Where analysis happens</h3>
+        <ul class="activity-bullet-list">
+          <li>Analysis and rewriting run in the browser.</li>
+          <li>The site does not intentionally send drafts to a remote analysis API.</li>
+          <li>No account is required to use the main review features.</li>
+        </ul>
+      </article>
+      <article class="panel privacy-card">
+        <p class="section-eyebrow">Data handling</p>
+        <h3>What users should assume</h3>
+        <ul class="activity-bullet-list">
+          <li>Anything typed into a browser can remain in browser memory while the page is open.</li>
+          <li>Standard browser caching behavior may apply.</li>
+          <li>Users should avoid entering sensitive information on shared devices.</li>
+        </ul>
+      </article>
+    </section>
+    <section class="panel privacy-statement" aria-labelledby="privacy-statement-title">
+      <p class="section-eyebrow">PRIVACY BY DESIGN</p>
+      <h2 id="privacy-statement-title">Your message stays in your browser</h2>
+      <p>Immediate message analysis and optional rewriting run in the browser; this deployment does not provide a server endpoint for receiving drafts, and it does not intentionally save message text to a database.</p>
+      <div class="privacy-statement-points">
+        <div><strong>On-device interpretation</strong><p>No remote text-analysis API in this build.</p></div>
+        <div><strong>No account required</strong><p>Drafts are not intentionally persisted by the app.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer><div>BeforeUSend</div><div>Review wording before sending important messages.</div></footer>
+</body>
+</html>

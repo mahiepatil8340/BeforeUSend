@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BeforeUSend helps users pause and evaluate important messages before sending." />
+  <title>BeforeUSend</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=targeted-royal-1" />
+</head>
+<body data-page="analyze">
+  <!-- Navigation and brand -->
+    <header class="topbar">
+    <a class="brand" href="index.html">BeforeUSend</a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="index.html" data-nav="analyze">Analyze</a><a href="activities.html" data-nav="activities">Activities</a><a href="how-it-works.html" data-nav="how">How it works</a><a href="methodology.html" data-nav="methods">Methodology & privacy</a></nav>
+  </header>
+
+  <main class="shell">
+    <!-- Hero introduction -->
+    <section class="hero panel segment">
+      <div class="hero-title-block">
+        <div class="main-title-lockup">
+          <img src="assets/bird.png" class="main-title-bird" alt="">
+          <div class="hero-title-copy">
+            <h1>BeforeUSend</h1>
+            <p class="hero-byline">Developed by Mahie Patil and Yikang Zhu</p>
+          </div>
+        </div>
+
+        <div class="hero-intro">
+          <p class="hero-subtitle">Review an important message before you send it with Natural Language Processing.</p>
+          
+
+        </div>
+      </div>
+
+      <div class="hero-overview" aria-label="What BeforeUSend evaluates">
+        <div class="overview-item">
+          <span class="overview-number">01</span>
+          <div><strong>Goal alignment</strong><p>Does the wording support what you want to happen next?</p></div>
+        </div>
+        <div class="overview-item">
+          <span class="overview-number">02</span>
+          <div><strong>Escalation potential</strong><p>Could the wording increase tension or defensiveness?</p></div>
+        </div>
+        <div class="overview-item">
+          <span class="overview-number">03</span>
+          <div><strong>Revision</strong><p>Can the same point be expressed more clearly and constructively?</p></div>
+        </div>
+      </div>
+    </section>
+
+
+      <!-- Interactive scenario previews -->
+      <div class="scenario-studio" aria-label="Interactive message examples">
+        <div class="scenario-heading"><strong>Explore a message scenario</strong><span>Choose an example to populate the editor</span></div>
+        <div class="scenario-grid">
+          <button type="button" class="scenario-btn" data-example="conflict"><span class="scenario-kicker">01 / Conflict</span><strong>Address a disagreement</strong><small>Compare blame with constructive wording</small><span class="scenario-action">Try example →</span></button>
+          <button type="button" class="scenario-btn" data-example="boundary"><span class="scenario-kicker">02 / Boundary</span><strong>Communicate a limit</strong><small>Firm without unnecessary aggression</small><span class="scenario-action">Try example →</span></button>
+          <button type="button" class="scenario-btn" data-example="request"><span class="scenario-kicker">03 / Request</span><strong>Ask for help</strong><small>Specific, respectful and actionable</small><span class="scenario-action">Try example →</span></button>
+          <button type="button" class="scenario-btn" data-example="apology"><span class="scenario-kicker">04 / Apology</span><strong>Take responsibility</strong><small>Acknowledgment rather than excuses</small><span class="scenario-action">Try example →</span></button>
+        </div>
+      </div>
+
+    <!-- Message analysis controls -->
+    <section id="checker" class="checker panel">
+      <div class="section-head">
+        <div>
+          <h2>What are you trying to say?</h2>
+          <p class="section-subtitle">You can select more than one tone and more than one current feeling.</p>
+        </div>
+      </div>
+
+      <div class="grid-two">
+        <div class="field wide help-item" data-help="This is the exact message BeforeUSend analyzes. Capitalization, punctuation, sentence structure, wording, and repeated phrases are preserved because they can change how a message feels to the recipient.">
+          <label for="message">Your message</label>
+          <textarea id="message" maxlength="2500" placeholder="Paste or type the message you are thinking about sending..."></textarea>
+          <div class="message-progress" role="progressbar" aria-label="Message length" aria-valuemin="0" aria-valuemax="2500" aria-valuenow="0"><div id="messageProgressFill"></div></div><div class="under-field"><span id="charCount">0 / 2500</span><button class="text-btn" id="sampleBtn">Try an example</button></div>
+        </div>
+
+        <div class="field help-item" data-help="Your goal gives the system a target to compare against. A message can sound polite but still fail if it does not support the outcome you actually want, such as apologizing, resolving conflict, or making a request.">
+          <label for="goal">Communication goal</label>
+          <select id="goal">
+            <option value="">Choose a goal</option>
+            <option>Apologize</option>
+            <option>Resolve a conflict</option>
+            <option>Give feedback</option>
+            <option>Make a request</option>
+            <option>Set a boundary</option>
+            <option>Clarify a misunderstanding</option>
+            <option>Express concern</option>
+            <option>Other</option>
+          </select>
+          <input id="customGoal" class="hidden" placeholder="Describe your goal..." />
+        </div>
+
+        <div class="field help-item" data-help="Choose every tone that matters for this message. A message can be both assertive and respectful, or calm and empathetic. BeforeUSend checks the draft against all selected tone goals rather than forcing you to choose only one.">
+          <label>Desired tone</label>
+          <div class="chips" id="toneChips">
+            <button class="chip active" data-tone="calm" aria-pressed="true">Calm</button>
+            <button class="chip" data-tone="respectful" aria-pressed="false">Respectful</button>
+            <button class="chip" data-tone="assertive" aria-pressed="false">Assertive</button>
+            <button class="chip" data-tone="professional" aria-pressed="false">Professional</button>
+            <button class="chip" data-tone="empathetic" aria-pressed="false">Empathetic</button>
+          </div>
+        </div>
+
+        <div class="field help-item" data-help="Importance adds context about the stakes of the conversation. A high-stakes message deserves more caution because misunderstandings can have larger consequences even when the wording itself is not extreme.">
+          <label for="importance">Importance level</label>
+          <div class="range-wrap">
+            <input id="importance" type="range" min="1" max="5" value="3">
+            <div class="range-labels"><span>Low</span><strong id="importanceValue">3</strong><span>High</span></div>
+          </div>
+        </div>
+
+        <div class="field help-item" data-help="Choose every feeling that applies right now. Mixed emotions are normal, so you can select combinations such as hurt and frustrated or anxious and angry. These selections are used only as context for the review and are not treated as proof of what your message means.">
+          <label>How are you feeling right now?</label>
+          <div class="chips" id="emotionChips">
+            <button class="chip" data-emotion="calm" aria-pressed="false">Calm</button>
+            <button class="chip" data-emotion="frustrated" aria-pressed="false">Frustrated</button>
+            <button class="chip" data-emotion="angry" aria-pressed="false">Angry</button>
+            <button class="chip" data-emotion="hurt" aria-pressed="false">Hurt</button>
+            <button class="chip" data-emotion="anxious" aria-pressed="false">Anxious</button>
+            <button class="chip" data-emotion="excited" aria-pressed="false">Excited</button>
+          </div>
+        </div>
+
+        <div class="field help-item" data-help="Recipient type helps interpret tone expectations. A message to a friend may use different language from a message to a teacher, employer, or mentor, even when the goal is similar.">
+          <label for="recipient">Who are you messaging?</label>
+          <select id="recipient">
+            <option>Friend</option>
+            <option>Parent / family member</option>
+            <option>Teacher</option>
+            <option>Coach / mentor</option>
+            <option>Classmate</option>
+            <option>Employer / coworker</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <details class="context-box wide help-item" data-help="Context is optional, but it can improve interpretation. You can explain what happened and paste the message you are replying to. These two inputs should be processed separately because background context and quoted conversation history serve different purposes.">
+          <summary>Optional context + previous message</summary>
+          <div class="context-grid">
+            <div class="field">
+              <label for="context">Conversation context</label>
+              <textarea id="context" class="small" placeholder="What happened before this?"></textarea>
+            </div>
+            <div class="field">
+              <label for="reply">Message you are replying to</label>
+              <textarea id="reply" class="small" placeholder="Paste the previous message here..."></textarea>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <p id="draftFeedback" class="draft-feedback" role="status" aria-live="polite">Start typing to prepare your message review.</p>
+      <button id="analyzeBtn" class="primary analyze help-item" data-help="Analyze combines the selected goal and tone with observable message features. The current prototype uses transparent language rules, emotional signals, punctuation, capitalization, and goal-specific checks to generate the scores below.">Analyze before I send</button>
+      <p id="error" class="error hidden">Add a message and choose your goal first.</p>
+    </section>
+
+    <section class="problem-grid">
+      <article class="panel intro-card">
+        <h2>Same words can carry different meanings.</h2>
+        <p>Texts and emails do not carry facial expression or tone of voice, so the same sentence can be received very differently from how it was intended.</p>
+      </article>
+      <article class="panel quote-card">
+        <div class="quote">“Fine. Whatever.”</div>
+        <p><strong>Possible readings:</strong> frustration, disappointment, exhaustion, sarcasm, or an attempt to end a conversation.</p>
+      </article>
+    </section>
+
+    <!-- Analysis results -->
+    <section id="results" class="results hidden">
+      <div class="results-title panel">
+        <div>
+          <h2>How might this message land?</h2>
+        </div>
+        <button class="ghost" id="resetBtn">Start over</button>
+      </div>
+
+      <p id="modelStatus" class="model-status" role="status" aria-live="polite">Ready to analyze your message.</p>
+      <div class="score-grid">
+        <article class="score-card panel help-item" data-help="Goal alignment estimates how well the wording supports the communication goal you selected. It considers escalation, politeness, goal-specific language, and tone. A low score does not mean the message is bad. It means the draft may not support the outcome you said you want.">
+          <div class="score-label">Goal alignment</div>
+          <div class="score-line"><span id="goalScore" class="big-score">--</span><span>/100</span></div>
+          <div class="meter"><div id="goalBar" class="meter-fill"></div></div>
+          <p id="goalSummary"></p>
+        </article>
+
+        <article class="score-card panel help-item" data-help="Escalation potential estimates how strongly the wording may increase tension or defensiveness. The score combines severe signals such as threats, profanity, insults, direct attacks, and ultimatums with subtler signals such as blame, commands, accusatory questions, repeated second-person criticism, capitalization, and punctuation. Multiple moderate signals compound rather than being treated independently.">
+          <div class="score-label">Escalation potential</div>
+          <div class="score-line"><span id="escalationScore" class="big-score">--</span><span>/100</span></div>
+          <div class="meter risk"><div id="escalationBar" class="meter-fill"></div></div>
+          <p id="escalationSummary"></p>
+        </article>
+
+        <article class="score-card panel help-item" data-help="Interpretation clarity summarizes how clear the observable language signals appear. It is not certainty about your feelings, intent, or relationship. The estimate can be wrong when important context is missing.">
+          <div class="score-label">Interpretation clarity</div>
+          <div class="score-line"><span id="confidenceScore" class="big-score">--</span><span>%</span></div>
+          <div class="meter confidence"><div id="confidenceBar" class="meter-fill"></div></div>
+          <p>Interpretation clarity is not a measured probability or certainty about intent.</p>
+        </article>
+      </div>
+
+      <div class="analysis-grid">
+        <article class="panel analysis-card signal-card help-item" data-help="The communication profile breaks the message into interpretable dimensions. These percentages describe detected language patterns, not a diagnosis of the sender's emotional state.">
+          <div class="context-line">These scores summarize observable language patterns in your message.</div>
+          <h3>Observable language signals</h3>
+          <p class="signal-intro">Each color represents a different kind of communication signal. Higher percentages mean that pattern is more visible in the wording.</p>
+          <div id="toneBars" class="tone-bars"></div>
+        </article>
+
+        <article class="panel analysis-card help-item" data-help="The goal check translates the scores into plain-language feedback. It explains whether the draft supports your selected goal and identifies the most important reason to review or revise it.">
+          <div class="context-line">This section compares those patterns with the communication goal you selected.</div>
+          <h3>What may help or hurt</h3>
+          <div id="insights" class="insights"></div><div id="contextualEvidence" class="contextual-evidence" aria-live="polite"></div>
+        </article>
+      </div>
+
+      <article class="panel highlight-card help-item" data-help="This review is intentionally sensitive. It looks for direct hostility, but also for subtler patterns that often make difficult messages harder to receive: blame, absolutes, dismissive or sarcastic wording, guilt pressure, ultimatums, accusatory questions, repeated second-person framing, abrupt replies, and unusually intense punctuation or capitalization. A highlight is a reason to review the wording, not proof that the sender is being hostile.">
+        <div class="section-head">
+          <div>
+            <h3>Review wording that may create friction</h3>
+            <details class="inline-toggle">
+              <summary>How phrases are flagged</summary>
+              <p>The system looks for blame, absolutes, dismissive wording, pressure, sarcasm, repeated second-person framing, abrupt replies, and unusually intense punctuation or capitalization. A highlight means the wording may deserve another look. Tap or click a highlighted phrase to see an explanation. It is not a judgment about what you meant.</p>
+            </details>
+          </div>
+          <div class="legend"><span class="l-yellow"></span>Review <span class="l-orange"></span>Defensive <span class="l-red"></span>Escalatory</div>
+        </div>
+        <div id="highlightedMessage" class="message-review"></div>
+        <div id="phraseExplanation" class="phrase-explanation">Tap or click a highlighted phrase to see why it may work against your goal.</div>
+      </article>
+
+      <article class="panel rewrite-card help-item" data-help="Rewrite keeps the main point of your draft while reducing language that may work against your goal. The revised version receives a new estimated goal-alignment score and escalation score so you can compare the two versions before choosing what to send.">
+        <div class="section-head">
+          <div>
+            <div class="context-line">This section suggests a revision based on your message, goal, tone, and context.</div>
+            <h3>Compare your original wording with a more measured revision.</h3>
+          </div>
+          <button id="rewriteBtn" class="secondary">Rewrite</button>
+        </div>
+        <p id="rewriteStatus" class="rewrite-status" role="status" aria-live="polite"></p>
+        <div id="rewriteArea" class="hidden">
+          <div class="compare-grid">
+            <div>
+              <div class="compare-label">Original</div>
+              <div id="originalBox" class="message-box"></div>
+            </div>
+            <div>
+              <div class="compare-label">Suggested revision</div>
+              <div id="rewriteBox" class="message-box better"></div>
+            </div>
+          </div>
+          <div class="rewrite-footer">
+            <div class="rewrite-score-block">
+              <div class="rewrite-score-label"><span>Goal alignment</span><strong id="newGoalScore"></strong></div>
+              <div class="rewrite-meter"><div id="newGoalBar" class="rewrite-meter-fill"></div></div>
+            </div>
+            <div class="rewrite-score-block">
+              <div class="rewrite-score-label"><span>Escalation potential</span><strong id="newEscalationScore"></strong></div>
+              <div class="rewrite-meter risk"><div id="newEscalationBar" class="rewrite-meter-fill"></div></div>
+            </div>
+            <button id="copyBtn" class="ghost">Copy revision</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="disclaimer">BeforeUSend is a reflection tool. It can identify communication patterns, but it cannot know a sender's true feelings, intent, or complete relationship context.</div>
+    </section>
+  
+    <!-- Interactive communication practice -->
+    <section class="practice-section">
+      <div class="practice-heading">
+        <h2>Practice before the next difficult conversation</h2>
+        <p>Recognizing communication patterns is easier when you have seen them before. These activities are designed to help you notice wording that can increase tension and give yourself a short pause when emotions are running high.</p>
+      </div>
+
+      <div class="practice-grid separated-practice-grid">
+        <article class="panel practice-card phrase-practice activity-box">
+          <div class="practice-card-header">
+            <div>
+              <div class="practice-eyebrow">Phrase recognition</div>
+              <h3>What might make this harder to receive?</h3>
+            </div>
+            <span id="phraseCardCounter" class="practice-counter"></span>
+          </div>
+
+          <button id="phraseCard" class="flashcard" type="button">
+            <div class="flashcard-face flashcard-front">
+              <span class="flashcard-label">Message phrase</span>
+              <strong id="phraseCardFront"></strong>
+            </div>
+            <div class="flashcard-face flashcard-back">
+              <span class="flashcard-label" id="phraseCardIssue"></span>
+              <p id="phraseCardExplanation"></p>
+              <div class="better-phrase">
+                <span>A clearer alternative</span>
+                <strong id="phraseCardAlternative"></strong>
+              </div>
+            </div>
+          </button>
+          <p id="phraseCardHint" class="activity-hint"></p>
+          <div class="activity-controls">
+            <button id="prevPhraseCard" class="ghost" type="button">Previous</button>
+            <button id="nextPhraseCard" class="ghost" type="button">Next phrase</button>
+          </div>
+        </article>
+
+        <article class="panel practice-card activity-box">
+          <div class="practice-eyebrow">Quick practice</div>
+          <h3>Choose the wording that is easier to respond to.</h3>
+          <div id="quizProgress" class="practice-counter"></div>
+          <p id="quizPrompt" class="quiz-prompt"></p>
+          <div id="quizChoices" class="quiz-choices"></div>
+          <p id="quizFeedback" class="quiz-feedback"></p>
+          <button id="quizNext" class="secondary hidden" type="button">Next question</button>
+        </article>
+      </div>
+
+      <div class="practice-section-break" aria-hidden="true"></div>
+      <section class="pause-experience panel reset-zone">
+        <div class="pause-header compact-pause-header">
+          <span class="practice-eyebrow">Before you send</span>
+          <h3>Short Reset</h3>
+          
+        </div>
+
+        <div class="reset-tools two-tools">
+          <article class="reset-tool breathing-feature">
+            <div class="reset-tool-copy">
+              <span class="practice-eyebrow">Guided breathing</span>
+              <h4>Slow the pace before you reread the message.</h4>
+              <p>Follow three 4-2-6 cycles. Inhale for 4 seconds, hold for 2, and exhale for 6. When the final cycle ends, reread the message once before deciding what to do next.</p>
+            </div>
+            <div class="breathing-stage">
+              <div id="breathingCircle" class="breathing-circle prominent-breathing">
+                <span id="breathingLabel">4-2-6 breathing</span>
+                <strong id="breathingCount"></strong>
+              </div>
+              <button id="startBreathing" class="primary" type="button">Start guided breathing</button>
+              <button id="stopBreathing" class="ghost breathing-stop" type="button">Stop</button>
+            </div>
+          </article>
+<article class="reset-tool perspective-tool">
+            <div class="reset-tool-copy">
+              <span class="practice-eyebrow">Perspective check</span>
+              <h4>Read the message as if it arrived on your phone.</h4>
+              
+            </div>
+            <div class="perspective-stage">
+              <div id="perspectivePrompt" class="perspective-prompt">Would I know what the sender wants me to understand or do next?</div>
+              <button id="nextPerspectivePrompt" class="ghost" type="button">Show another prompt</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <details class="guidance-toggle">
+          <summary>
+            <span class="toggle-summary-copy">
+              <span class="practice-eyebrow">Optional deeper guide</span>
+              <strong>Revising an intense message step by step</strong>
+              <small>Click to expand the guide</small>
+            </span>
+            <span class="toggle-control"><span class="toggle-symbol">+</span><span class="toggle-word">Open</span></span>
+          </summary>
+          <div class="pause-guidance">
+            <div class="guidance-item">
+              <span class="guidance-number">01</span>
+              <div>
+                <strong>Separate the event from a judgment about the person.</strong>
+                <p>If the draft says what someone “always” does, what they “never” understand, or what kind of person they are, replace that judgment with the specific behavior that is bothering you. Concrete events give the other person something they can actually respond to.</p>
+              </div>
+            </div>
+            <div class="guidance-item">
+              <span class="guidance-number">02</span>
+              <div>
+                <strong>Describe the effect on you without claiming to know why the other person acted that way.</strong>
+                <p>“You clearly do not care” combines an observation with an assumption about motive. A more useful message can still say that you felt hurt, ignored, or unimportant while leaving room for information you may not have.</p>
+              </div>
+            </div>
+            <div class="guidance-item">
+              <span class="guidance-number">03</span>
+              <div>
+                <strong>Make the next step visible.</strong>
+                <p>If your real goal is clarification, an apology, a change in behavior, a boundary, or a concrete answer, say that directly. A recipient can respond more constructively when the message gives them a clear path forward.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+      <details class="research-toggle panel">
+        <summary>
+          <span class="toggle-summary-copy"><span class="practice-eyebrow">Research behind the pause</span><strong>Evidence supporting brief delays and slower breathing</strong><small>Click to expand the research</small></span>
+          <span class="toggle-control"><span class="toggle-symbol">+</span><span class="toggle-word">Open</span></span>
+        </summary>
+        <div class="research-toggle-body"><div class="research-heading">
+          <span class="practice-eyebrow">Research behind the pause</span>
+          <h3>Brief delays and slower breathing can reduce the intensity of an immediate response.</h3>
+        </div>
+        <div class="research-body">
+          <p>A 2024 experimental study of romantic couples found that brief forced breaks of 5, 10, or 15 seconds between provocation and the opportunity to respond reduced negative emotion and aggressive responding. Participants who voluntarily waited longer also showed lower negative emotion and less aggression. A systematic review of slow-breathing research also reported changes consistent with greater autonomic regulation, along with reductions in measures such as arousal, anxiety, anger, and confusion.</p>
+          <div class="research-citations">
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11331989/" target="_blank" rel="noopener"><strong>McCurry, May &amp; Donaldson, 2024</strong><span>Communications Psychology. Experimental evidence on brief breaks during interpersonal conflict.</span></a>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6137615/" target="_blank" rel="noopener"><strong>Zaccaro et al., 2018</strong><span>Frontiers in Human Neuroscience. Systematic review of psychophysiological effects of slow breathing.</span></a>
+          </div>
+        </div></div>
+      </details>
+    </section>
+
+
+<section class="research-visual panel" aria-label="How analysis works"><h2>From draft to review</h2><div class="visual-steps"><div><small>01</small><strong>Message</strong><span>Draft and purpose</span></div><div><small>02</small><strong>Language cues</strong><span>Blame, requests, boundaries</span></div><div><small>03</small><strong>Comparison</strong><span>Goal and potential friction</span></div><div><small>04</small><strong>Review</strong><span>Evidence and edits</span></div></div><p>Scores are exploratory estimates, not measured probabilities.</p></section>
+    <!-- Research and methodology overview -->
+    <section class="how-section panel" id="how-it-works" aria-labelledby="how-title">
+      <p class="section-eyebrow">Process and research</p>
+      <h2 id="how-title">How it works</h2>
+      <p>BeforeUSend is a communication review tool. It helps users inspect wording before sending a message. The analysis provides indicators for reflection, not verified predictions about another person's reaction.</p>
+      <div class="how-grid">
+        <article><span>01</span><h3>Set your goal</h3><p>Enter a draft and select the purpose, recipient, and desired tone. These choices define what the review evaluates.</p></article>
+        <article><span>02</span><h3>Review language patterns</h3><p>Immediate JavaScript checks identify phrases linked to blame, pressure, hostility, direct requests, and boundaries. Punctuation and emphasis add context.</p></article>
+        <article><span>03</span><h3>Interpret the results</h3><p>Escalation potential and goal alignment are heuristic indicators. Highlighted phrases show where wording may warrant a second look.</p></article>
+        <article><span>04</span><h3>Consider a revision</h3><p>Use an immediate wording revision and compare it against the original. You retain final control over the message.</p></article>
+      </div>
+      <div class="research-note">
+        <h3>Research informing the experience</h3>
+        <p>Research on conflict regulation suggests that a short pause before responding can reduce negative emotion and aggressive reactions in studied settings. Reviews of slow breathing report associations with physiological regulation and reduced arousal. These findings inform the pause and reflection exercises, but they do not validate the accuracy of BeforeUSend's NLP scores.</p>
+        <p class="research-links"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11331989/" target="_blank" rel="noopener noreferrer">McCurry, May and Donaldson (2024)</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6137615/" target="_blank" rel="noopener noreferrer">Zaccaro et al. (2018)</a></p>
+      </div>
+    </section>
+
+    <!-- Methodology and privacy details -->
+    <section class="methods-section panel" id="methodology" aria-labelledby="methods-title">
+      <div class="methods-top">
+        <div><span class="practice-eyebrow">Under the hood</span><h2 id="methods-title">Methodology and privacy</h2>
+          <p class="methods-lede">BeforeUSend provides immediate language-pattern analysis and an optional instant wording revision to help you review a message before sending it. It looks for how language might land, not what the sender secretly feels or what a recipient will definitely do.</p></div>
+        <span class="methods-tag">Language analysis</span>
+      </div>
+
+      <div class="methods-pipeline" aria-label="Four stages of message analysis">
+        <div class="methods-stage"><span>01 · INPUT</span><strong>Your message</strong><p>Draft, intended goal, desired tones, recipient, and any optional conversation context.</p></div>
+        <div class="methods-stage"><span>02 · INTERPRET</span><strong>Meaning + patterns</strong><p>Immediate linguistic checks identify observable wording patterns and areas to review.</p></div>
+        <div class="methods-stage"><span>03 · COMPARE</span><strong>Potential friction</strong><p>The analysis estimates escalation and how well the draft serves the goal you selected.</p></div>
+        <div class="methods-stage"><span>04 · REFLECT</span><strong>Feedback + revision</strong><p>Review highlights, explanations, and a suggested wording revision before choosing what to send.</p></div>
+      </div>
+
+      <div class="methods-two-col">
+        <article class="methods-subsection"><span class="methods-kicker">01 / LANGUAGE ANALYSIS</span><h3>Beyond detecting keywords</h3>
+          <p>Natural Language Processing (NLP) lets software analyze patterns in human language. The immediate analysis uses transparent JavaScript language rules to identify wording patterns and compare them with the selected goal. The revision tool uses immediate, transparent phrase-based edits.</p>
+          <p>That distinction matters: <em>“I need you to stop contacting me”</em> may be a healthy boundary, while <em>“Fine. Do whatever you want”</em> could be dismissive in a tense exchange. Neither phrase has one guaranteed interpretation.</p>
+        </article>
+        <article class="methods-subsection"><span class="methods-kicker">02 / THE RULES</span><h3>Making feedback explainable</h3>
+          <p>JavaScript rules separately check observable cues such as direct threats, insults, blanket statements (“always,” “never”), accusatory questions, ultimatums, repeated punctuation, and capitalization. These signals help identify <strong>which exact wording</strong> to revisit.</p>
+          <p>Rules alone can overreact to harmless phrases or miss subtle meanings. The immediate results highlight detected expressions so readers can assess them directly. These rules are limited and may miss context, sarcasm, or implicit meaning. Highlighting is a prompt to reflect, not proof of hostility.</p>
+        </article>
+        <article class="methods-subsection"><span class="methods-kicker">03 / THE OUTPUTS</span><h3>What the scores actually mean</h3>
+          <p><strong>Escalation potential</strong> is an estimate of how strongly the wording might increase tension or defensiveness. <strong>Goal alignment</strong> estimates whether the wording supports the selected goal, such as apologizing, asking a question, resolving a misunderstanding, or setting a boundary.</p>
+          <p><strong>Observable language signals</strong> summarize patterns such as politeness, frustration, and defensiveness. <strong>Signal clarity</strong> describes how clear the detected signals appear; it does not measure the probability that an interpretation is correct.</p>
+          <p class="methods-caution">All 0 to 100 scores are experimental heuristics, not empirically calibrated probabilities or clinically validated measurements.</p>
+        </article>
+        <article class="methods-subsection"><span class="methods-kicker">04 / THE REWRITE</span><h3>Same intent, different delivery</h3>
+          <p>The rewriting feature adjusts wording to make messages clearer, calmer, and more professional. Compare the suggestion with your original draft to confirm it communicates your intended meaning.</p>
+          <p>Generated suggestions can miss nuance, change meaning, or overlook essential context. Always review the revision before copying or sending it.</p>
+        </article>
+      </div>
+
+      <div class="methods-privacy">
+        <div>
+          <span class="methods-kicker">PRIVACY BY DESIGN</span>
+          <h3>Your message stays in your browser</h3>
+          <p>Immediate message analysis and optional rewriting run in the browser; this deployment does not provide a server endpoint for receiving drafts, and it does not intentionally save message text to a database.</p>
+        </div>
+        <div class="methods-privacy-points" aria-label="Privacy principles">
+          <div><strong>On-device interpretation</strong><span>No remote text-analysis API in this build.</span></div>
+          <div><strong>No account required</strong><span>Drafts are not intentionally persisted by the app.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>BeforeUSend</strong></div>
+    <div>Congressional App Challenge prototype</div>
+  </footer>
+
+  <script src="app.js?v=word-level-1"></script>
+</body>
+</html>

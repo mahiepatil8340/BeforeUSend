@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Activities for practicing communication and pausing before sending." name="description"/>
+<title>BeforeUSend | Activities</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=targeted-royal-1" rel="stylesheet">
+</link></head>
+<body data-page="activities">
+<header class="topbar">
+<a class="brand" href="index.html">BeforeUSend</a>
+<nav aria-label="Main navigation" class="site-nav"><a data-nav="analyze" href="index.html">Analyze</a><a data-nav="activities" href="activities.html">Activities</a><a data-nav="how" href="how-it-works.html">How it works</a><a data-nav="methods" href="methodology.html">Methodology &amp; privacy</a></nav>
+</header>
+<main class="shell">
+<div class="subpage-heading">
+<span>ACTIVITIES</span>
+<h1>Activities</h1>
+<p>Short exercises designed to slow the moment, recognize friction, and improve message choices.</p>
+</div>
+<section class="panel activities-hero">
+<div>
+<p class="section-eyebrow">Activity 1</p>
+<h2>Reset before rereading</h2>
+<p class="diagram-intro">Start with the guided breathing. Then move into phrase review, quick practice, and reflection prompts.</p>
+</div>
+<div class="activity-order">
+<div><span>01</span> Guided breathing</div>
+<div><span>02</span> Phrase review</div>
+<div><span>03</span> Quick practice</div>
+<div><span>04</span> Perspective prompts</div>
+</div>
+</section>
+<section class="activities-grid-top">
+<section class="panel reset-zone breathing-lead">
+<div class="compact-pause-header">
+<span class="practice-eyebrow">Guided reset</span>
+<h3>Guided breathing</h3>
+<p>Follow three 4-2-6 cycles before rereading a difficult draft.</p>
+</div>
+<div class="breathing-stage breathing-stage-large">
+<div class="breathing-circle prominent-breathing" id="breathingCircle">
+<span id="breathingLabel">4-2-6 breathing</span>
+<strong id="breathingCount"></strong>
+</div>
+<div class="breathing-button-row">
+<button class="primary" id="startBreathing" type="button">Start guided breathing</button>
+<button class="ghost breathing-stop" id="stopBreathing" type="button">Stop</button>
+</div>
+</div>
+</section>
+<aside class="activity-side-stack">
+<article class="panel activity-tip-card">
+<span class="practice-eyebrow">What to notice</span>
+<h3>Before the next step</h3>
+<ul class="activity-bullet-list">
+<li>Are you writing to solve something or to discharge emotion?</li>
+<li>Would the recipient know exactly what you want next?</li>
+<li>Is there one sentence that changes the entire tone?</li>
+</ul>
+</article>
+
+</aside>
+</section>
+<section class="activities-grid-main">
+<article class="panel practice-card phrase-practice activity-box">
+<div class="practice-card-header">
+<div>
+<div class="practice-eyebrow">Phrase review</div>
+<h3>What might make this harder to receive?</h3>
+</div>
+<span class="practice-counter" id="phraseCardCounter"></span>
+</div>
+<button class="flashcard" id="phraseCard" type="button">
+<div class="flashcard-face flashcard-front">
+<span class="flashcard-label">Message phrase</span>
+<strong id="phraseCardFront"></strong>
+</div>
+<div class="flashcard-face flashcard-back">
+<span class="flashcard-label" id="phraseCardIssue"></span>
+<p id="phraseCardExplanation"></p>
+<div class="better-phrase">
+<span>A clearer alternative</span>
+<strong id="phraseCardAlternative"></strong>
+</div>
+</div>
+</button>
+<p class="activity-hint" id="phraseCardHint"></p>
+<div class="activity-controls">
+<button class="ghost" id="prevPhraseCard" type="button">Previous</button>
+<button class="ghost" id="nextPhraseCard" type="button">Next phrase</button>
+</div>
+</article>
+<article class="panel practice-card activity-box">
+<div class="practice-eyebrow">Quick practice</div>
+<h3>Choose the wording that is easier to respond to.</h3>
+<div class="practice-counter" id="quizProgress"></div>
+<p class="quiz-prompt" id="quizPrompt"></p>
+<div class="quiz-choices" id="quizChoices"></div>
+<p class="quiz-feedback" id="quizFeedback"></p>
+<button class="secondary hidden" id="quizNext" type="button">Next question</button>
+</article>
+<article class="panel activity-box perspective-card">
+<div class="practice-eyebrow">Reflection prompt</div>
+<h3>Perspective check</h3>
+<p class="perspective-prompt" id="perspectivePrompt">Would I know what the sender wants me to understand or do next?</p>
+<button class="secondary" id="nextPerspectivePrompt" type="button">Next prompt</button>
+</article>
+</section>
+
+<section class="panel escalation-lab">
+  <div class="escalation-lab-head">
+    <div>
+      <p class="section-eyebrow">Interactive activity</p>
+      <h2>How arguments can escalate and how to interrupt the cycle</h2>
+      <ul class="activity-bullet-list escalation-bullets">
+        <li>This activity shows how one tense statement can trigger a more defensive response.</li>
+        <li>It also shows what a more constructive interruption can look like at each stage.</li>
+        <li>Use the controls to step through the cycle and compare escalation with de-escalation.</li>
+      </ul>
+    </div>
+    <div class="cycle-key" aria-label="Legend">
+      <div><span class="cycle-dot cycle-dot-risk"></span> Escalation path</div>
+      <div><span class="cycle-dot cycle-dot-safe"></span> Interruption path</div>
+    </div>
+  </div>
+
+  <div class="cycle-stage-nav" role="tablist" aria-label="Argument cycle stages">
+    <button class="cycle-step is-active" type="button" data-cycle-step="0">01 Trigger</button>
+    <button class="cycle-step" type="button" data-cycle-step="1">02 Interpretation</button>
+    <button class="cycle-step" type="button" data-cycle-step="2">03 Reaction</button>
+    <button class="cycle-step" type="button" data-cycle-step="3">04 Escalation</button>
+  </div>
+
+  <div class="cycle-visual-grid">
+    <article class="cycle-card cycle-risk-card">
+      <div class="cycle-card-head">
+        <div class="cycle-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 64 64" class="cycle-icon head-icon"><circle cx="32" cy="20" r="10"></circle><path d="M16 52c2-10 11-16 16-16s14 6 16 16"></path></svg>
+          <svg viewBox="0 0 64 64" class="cycle-icon speech-icon"><path d="M12 14h40v24H30l-10 9v-9H12z"></path></svg>
+        </div>
+        <div>
+          <p class="cycle-label">Escalation path</p>
+          <h3 id="cycleRiskTitle">Triggering statement</h3>
+        </div>
+      </div>
+      <div id="cycleRiskText" class="cycle-message-box"></div>
+      <ul id="cycleRiskBullets" class="cycle-points"></ul>
+    </article>
+
+    <article class="cycle-card cycle-safe-card">
+      <div class="cycle-card-head">
+        <div class="cycle-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 64 64" class="cycle-icon head-icon"><circle cx="32" cy="20" r="10"></circle><path d="M16 52c2-10 11-16 16-16s14 6 16 16"></path></svg>
+          <svg viewBox="0 0 64 64" class="cycle-icon speech-icon"><path d="M12 14h40v24H30l-10 9v-9H12z"></path></svg>
+        </div>
+        <div>
+          <p class="cycle-label">Interruption path</p>
+          <h3 id="cycleSafeTitle">Constructive alternative</h3>
+        </div>
+      </div>
+      <div id="cycleSafeText" class="cycle-message-box"></div>
+      <ul id="cycleSafeBullets" class="cycle-points"></ul>
+    </article>
+  </div>
+
+  <div class="cycle-controls">
+    <button id="cyclePrev" class="ghost" type="button">Previous stage</button>
+    <button id="cycleNext" class="secondary" type="button">Next stage</button>
+  </div>
+</section>
+
+</main>
+<footer><div>BeforeUSend</div><div>Review wording before sending important messages.</div></footer>
+<script src="app.js?v=word-level-1"></script>
+</body>
+</html>
